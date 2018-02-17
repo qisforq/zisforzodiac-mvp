@@ -12,6 +12,7 @@ class Search extends React.Component {
       birthdate: moment("06-16-1991", "MM-DD-YYYY"),
       hour: 12,
       minute: '',
+      geo: '',
       amHours: _.range(0, 12),
       pmHours: _.range(12, 24),
       minutes: _.range(0, 60)
@@ -38,37 +39,43 @@ class Search extends React.Component {
 
   search() {
     // this.setState({})
-    let {name, birthdate, hour, minute} = this.state;
-    this.props.sendAstro(name, birthdate, hour, minute)//{day, month, year, hour, minute}
+    let {name, birthdate, hour, minute, geo} = this.state;
+    this.props.sendAstro(name, birthdate, hour, minute, geo)//{day, month, year, hour, minute}
   }
 
   render() {
     return (
       <div>
+        <h3>Learn about who you are!</h3>
         <h4>Relinquish personal info here:</h4>
         <form onSubmit={this.search}>
           <label>
-            Name: <br />
-            <input
-              type="text"
-              value={this.state.name}
-              placeholder="Name"
-              onChange={this.onChange.bind(this, 'name')}
-            /><br />
+            <h5>
+              Name:&nbsp;<br/>
+              <input
+                type="text"
+                value={this.state.name}
+                placeholder="Name"
+                onChange={this.onChange.bind(this, 'name')}
+              />
+            </h5>
           </label>
-            <br />
           <label>
-            Birthdate:
+            <h5>
+              Birthdate:
+              <DatePicker
+                placeholderText="Birthday"
+                selected={this.state.birthdate}
+                onChange={this.dateChange}
+                showYearDropdown
+              />
+            </h5>
           </label>
-            <DatePicker
-              placeholderText="Birthday"
-              selected={this.state.birthdate}
-              onChange={this.dateChange}
-              showYearDropdown
-            />
-          <br />
           <label>
-            Birth time (hours and minutes):&nbsp;&nbsp;
+            <h5>
+              Birth time:
+            </h5>
+            hours:&nbsp;&nbsp;
           </label>
             <select value={this.state.hour} onChange={this.onChange.bind(this, 'hour')}>
               <option value={this.state.amHours[0]}>I don't know!</option>
@@ -85,21 +92,30 @@ class Search extends React.Component {
               }
               <option value={this.state.amHours[0]}>12 AM</option>
             </select>
-          <label >&nbsp;&nbsp;min</label>
+          <label><br/>
+          <br/>minutes:&nbsp;&nbsp;
+          </label>
           <input value={this.state.minute} placeholder="Minutes" onChange={this.onChange.bind(this, 'minute')}/>
           <br />
+          <br />
+          <label>
+            <h5>
+              Place of birth:&nbsp;<br/>
+              <input
+                value={this.state.geo}
+                placeholder="City/State"
+                onChange={this.onChange.bind(this, 'geo')}
+              />
+            </h5>
+          </label>
+
         </form>
         <button onClick={this.search}>Submit</button>
       </div>)
   }
 }
-// React.createElement('input', {
-//   type: 'email',
-//   className: errors.email && 'ContactForm-error',
-//   placeholder: 'Email (required)',
-//   value: this.props.value.email,
-//   onChange: this.onEmailChange,
-// })
+// NEXT: You Must still add an input form to enter city of birth, and then have geocoder convert that into latitude and longitude coordinates.
+
 // 'date': 10,
 // 'month': 12,
 // 'year': 1993,

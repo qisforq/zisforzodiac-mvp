@@ -89,6 +89,9 @@ var packageMatchMakingData = (maleBirthData, femaleBirthData) => {
 
 
 var api = {
+  tzCall: (data, callback) => {
+    return getResponse("timezone_with_dst", data, callback)
+  },
 
 	call: (resource, date, month, year, hour, minute, latitude, longitude, timezone, callback) => {
 		var data = packageHoroData(date, month, year, hour, minute, latitude, longitude, timezone);
