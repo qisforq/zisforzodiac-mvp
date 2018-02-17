@@ -73,9 +73,9 @@ class App extends React.Component {
       <div className="container">
         <h1>Z is for Zodiac</h1>
         {this.whatToRender()}
-        <select>
+        {/* <select>
           <option value="Quentin">Quentin</option>
-        </select>
+        </select> */}
       </div>)
   }
 }
