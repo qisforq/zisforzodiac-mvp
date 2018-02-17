@@ -6,6 +6,8 @@ const http = require('http');
 const baseUrl = "http://api.vedicrishiastro.com/v1/";
 // const userID = config.ID;
 // const apiKey = config.KEY;
+// const userID = config.ID;
+// const apiKey = config.KEY;
 const userID = process.env.ID;
 const apiKey = process.env.KEY;
 

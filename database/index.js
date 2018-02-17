@@ -15,13 +15,16 @@ db.once('open', function() {
 var astroSchema = mongoose.Schema({
   id: {type:Number, unique:true},
   name: String,
-  zodiac: String
+  report: [String],
+
 });
 //
 var Astro = mongoose.model('Astro', astroSchema);
 
 exports.save = (astros) => {
-  console.log(astros);
+  let report = JSON.parse(astros.portrait).report
+  let signData = JSON.parse(astros.signData)
+  console.log('..>>>',(signData),'<<AHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!!!!!!!');
   return Astro.create(astros)
 }
 //

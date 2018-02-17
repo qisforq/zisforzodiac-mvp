@@ -78,8 +78,8 @@ console.log(loc, 'loc????');
                   signData: signs
                 }
                 console.log(result);
-                 database.save(resultAndSign).then(() => res.send(resultAndSign));
-
+                
+                res.send(resultAndSign)
               }
             });
           }
