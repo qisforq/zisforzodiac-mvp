@@ -2,13 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const database = require('../database/index.js')
 const sdk = require('../helpers/sdk/sdk.js')
-// const geocoder = require('geocoder');
-const geocoder = require('google-geocoder')({key:"AIzaSyBCg8JFIhj11ucA054CjhhmlWKKhTOFiSI"});
-// var hoho = {key:"AIzaSyBCg8JFIhj11ucA054CjhhmlWKKhTOFiSI"}
+// const config = require('../../config.js');
 
-// TODO: You just figured out how to get the user data from the webform into your astrology api call (see line 18)
-// NEXT: You Must still add an input form to enter city of birth, and then have geocoder convert that into latitude and longitude coordinates.
-// ALso remember to change the name of hoho (line 6)
+// const geocoder = require('geocoder');
+const geocoder = require('google-geocoder')({key:process.env.KEY});
+
 
 
 const app = express();

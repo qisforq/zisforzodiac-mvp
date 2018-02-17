@@ -1,12 +1,12 @@
 const request = require('request');
 const http = require('http');
-const config = require('../../config.js');
-// const ID = process.env.ID
-// const KEY = process.env.KEY
+// const config = require('../../config.js');
+const ID = process.env.ID
+const KEY = process.env.KEY
 
 const baseUrl = "http://api.vedicrishiastro.com/v1/";
-const userID = config.ID;
-const apiKey = config.KEY;
+// const userID = config.ID;
+// const apiKey = config.KEY;
 
 
 var getResponse = (resource, data, callback) => {
