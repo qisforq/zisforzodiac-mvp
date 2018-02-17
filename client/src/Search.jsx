@@ -46,38 +46,44 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <h3>Learn about who you are!</h3>
+        <h3>Learn about who you are!</h3><br/>
         <h4>Relinquish personal info here:</h4>
         <form onSubmit={this.search}>
-          <label>
-            <h5>
-              Name:&nbsp;<br/>
-              <input
-                type="text"
-                value={this.state.name}
-                placeholder="Name"
-                onChange={this.onChange.bind(this, 'name')}
-              />
-            </h5>
-          </label>
-          <label>
-            <h5>
-              Birthdate:
-              <DatePicker
-                placeholderText="Birthday"
-                selected={this.state.birthdate}
-                onChange={this.dateChange}
-                showYearDropdown
-              />
-            </h5>
-          </label>
-          <label>
-            <h5>
-              Birth time:
-            </h5>
-            hours:&nbsp;&nbsp;
-          </label>
-            <select value={this.state.hour} onChange={this.onChange.bind(this, 'hour')}>
+          <div className="form-group" style={{'padding-top': '10px'}}>
+            <label>
+              <h5>
+                Name:&nbsp;<br/>
+                <input className="form-control"
+                  type="text"
+                  value={this.state.name}
+                  placeholder="Name"
+                  onChange={this.onChange.bind(this, 'name')}
+                />
+              </h5>
+            </label>
+          </div>
+          <div className="form-group" style={{'padding-top': '10px'}}>
+            <label>
+              <h5>
+                Birthdate:
+                <DatePicker
+                  className="form-control"
+                  placeholderText="Birthday"
+                  selected={this.state.birthdate}
+                  onChange={this.dateChange}
+                  showYearDropdown
+                />
+              </h5>
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <h5>
+                Birth time:
+              </h5>
+              hours:
+            </label>
+            <select className="form-control-sm" value={this.state.hour} onChange={this.onChange.bind(this, 'hour')}>
               <option value={this.state.amHours[0]}>I don't know!</option>
               {
                 this.state.amHours.map((hour, i) => {
@@ -92,25 +98,26 @@ class Search extends React.Component {
               }
               <option value={this.state.amHours[0]}>12 AM</option>
             </select>
-          <label><br/>
-          <br/>minutes:&nbsp;&nbsp;
-          </label>
-          <input value={this.state.minute} placeholder="Minutes" onChange={this.onChange.bind(this, 'minute')}/>
-          <br />
-          <br />
-          <label>
-            <h5>
-              Place of birth:&nbsp;<br/>
-              <input
-                value={this.state.geo}
-                placeholder="City/State"
-                onChange={this.onChange.bind(this, 'geo')}
-              />
-            </h5>
-          </label>
-
+            <label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minutes:&nbsp;&nbsp;
+            </label>
+            <input className="form-control-sm" value={this.state.minute} placeholder="Minutes" onChange={this.onChange.bind(this, 'minute')}/>
+            <br />
+            <br />
+            <label>
+              <h5>
+                Place of birth:&nbsp;<br/>
+                <input
+                  className="form-control-sm"
+                  value={this.state.geo}
+                  placeholder="City/State"
+                  onChange={this.onChange.bind(this, 'geo')}
+                />
+              </h5>
+            </label>
+          </div>
         </form>
-        <button onClick={this.search}>Submit</button>
+        <button className="btn btn-primary" onClick={this.search}>Submit</button>
       </div>)
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import axios from 'axios';
 import moment from 'moment';
 import Search from './Search.jsx';
@@ -71,7 +70,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="container">
         <h1>Z is for Zodiac</h1>
         {this.whatToRender()}
         <select>
