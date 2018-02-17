@@ -97,8 +97,8 @@ console.log(loc, 'loc????');
 // });
 
 
-// let port = process.env.PORT || 61691;
-let port = 61691;
+let port = process.env.PORT || 61691;
+// let port = 61691;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
