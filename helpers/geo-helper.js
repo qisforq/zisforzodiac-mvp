@@ -19,7 +19,7 @@ let getReposByUsername = (githubUser, cb) => {
       'Authorization': `token ${token}`
     },
     // qs: {
-    //     access_token: config.TOKEN // -> uri + '?access_token=xxxxx%20xxxxx'
+    //     access_token: config.T OKEN // -> uri + '?access_token=xxxxx%20xxxxx'
     // },
     // headers: {
     //     'User-Agent': 'Request-Promise'
